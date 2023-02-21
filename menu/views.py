@@ -1,10 +1,9 @@
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.views import LoginView, redirect_to_login
-from django.http import HttpResponseRedirect
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views import View
 from django.views.generic import CreateView
-from django.urls import reverse, reverse_lazy
+from django.urls import reverse_lazy
 
 
 class Main(View):
@@ -33,8 +32,8 @@ class HyperLoginView(LoginView):
 class HomeView(View):
     def get(self, request, *args, **kwargs):
         if request.user.is_staff:
-            return HttpResponseRedirect(reverse("new_vacancy"))
+            return redirect("new_vacancy")
         elif request.user.is_authenticated:
-            return HttpResponseRedirect(reverse("new_resume"))
+            return redirect("new_resume")
         else:
-            return redirect_to_login(reverse("home"))
+            return redirect_to_login("home")

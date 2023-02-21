@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path, include, re_path
 
 urlpatterns = [
-    re_path("admin/?", admin.site.urls, name="admin"),
+    re_path("^admin/?$", admin.site.urls, name="admin"),
     path("", include("vacancy.urls")),
     path("", include("resume.urls")),
     path("", include("menu.urls")),
