@@ -30,7 +30,7 @@ class HyperLoginView(LoginView):
     template_name = "menu/login.html"
 
 
-class HomeView(CreateView):
+class HomeView(View):
     def get(self, request, *args, **kwargs):
         if request.user.is_staff:
             return HttpResponseRedirect(reverse("new_vacancy"))
