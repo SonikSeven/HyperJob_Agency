@@ -15,7 +15,7 @@ class NewResumeView(LoginRequiredMixin, CreateView):
     model = models.Resume
     fields = ["description"]
     template_name = "resume/new_resume.html"
-    success_url = reverse_lazy("menu")
+    success_url = reverse_lazy("menu_url")
 
     def form_valid(self, form):
         form.instance.author = self.request.user

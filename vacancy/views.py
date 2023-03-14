@@ -17,7 +17,7 @@ class NewVacancyView(PermissionRequiredMixin, CreateView):
     model = models.Vacancy
     fields = ["description"]
     template_name = "vacancy/new_vacancy.html"
-    success_url = reverse_lazy("menu")
+    success_url = reverse_lazy("menu_url")
 
     def handle_no_permission(self):
         return HttpResponseForbidden()
