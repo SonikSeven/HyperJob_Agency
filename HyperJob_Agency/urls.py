@@ -17,7 +17,9 @@ from django.contrib import admin
 from django.contrib.auth.views import LogoutView
 from django.urls import path, include, re_path
 
+from django.conf.urls.static import static
 from . import views
+from . import settings
 
 
 urlpatterns = [
@@ -30,3 +32,6 @@ urlpatterns = [
     path("", include("vacancy.urls")),
     path("", include("resume.urls")),
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL)
